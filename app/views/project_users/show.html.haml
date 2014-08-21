@@ -1,0 +1,7 @@
+%p#notice= notice
+
+= image_tag @project_user.avatar.url(:thumb)
+
+= link_to 'Edit', edit_project_user_path(@project_user)
+\|
+= link_to 'Back', project_users_path

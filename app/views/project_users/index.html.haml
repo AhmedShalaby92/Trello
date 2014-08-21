@@ -1,0 +1,18 @@
+%h1 Listing project_users
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @project_users.each do |project_user|
+    %tr
+      %td= image_tag project_user.avatar.url(:thumb)
+      %td= link_to 'Show', project_user
+      %td= link_to 'Edit', edit_project_user_path(project_user)
+      %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Project user', new_project_user_path

@@ -10315,3 +10315,737 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 17:46:53 +0300
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 17:46:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateProjectUsers (20140821164819)
+  [1m[35m (101.2ms)[0m  CREATE TABLE `project_users` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140821164819')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddAttachmentAvatarToProjectUsers (20140821165407)
+  [1m[35m (208.1ms)[0m  ALTER TABLE `project_users` ADD `avatar_file_name` varchar(255)
+  [1m[36m (519.9ms)[0m  [1mALTER TABLE `project_users` ADD `avatar_content_type` varchar(255)[0m
+  [1m[35m (174.3ms)[0m  ALTER TABLE `project_users` ADD `avatar_file_size` int(11)
+  [1m[36m (191.8ms)[0m  [1mALTER TABLE `project_users` ADD `avatar_updated_at` datetime[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140821165407')[0m
+  [1m[35m (18.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-21 20:00:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/railties-4.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 20ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projectUsers" for 127.0.0.1 at 2014-08-21 20:01:06 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projectUsers"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/motazelshaer/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/motazelshaer/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/motazelshaer/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.1ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT `project_users`.* FROM `project_users`
+  Rendered project_users/index.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 250ms (Views: 245.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 20:01:41 +0300
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:01:43 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (29.7ms)
+  Rendered project_users/new.html.haml within layouts/application (34.0ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (undefined local variable or method `projectsUsers_path' for #<#<Class:0x007f8f778c8a08>:0x007f8f76f2c760>):
+    1: = form_for @project_user, :url => projectsUsers_path, :html => { :multipart => true } do |f|
+    2:   - if @project_user.errors.any?
+    3:     #error_explanation
+    4:       %h2= "#{pluralize(@project_user.errors.count, "error")} prohibited this project_user from being saved:"
+  app/views/project_users/_form.html.haml:1:in `_app_views_project_users__form_html_haml___2721832608133294695_70127076256980'
+  app/views/project_users/new.html.haml:3:in `_app_views_project_users_new_html_haml___1784764921630757179_70127076325180'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.2ms)
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:01:43 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (17.1ms)
+  Rendered project_users/new.html.haml within layouts/application (19.7ms)
+Completed 500 Internal Server Error in 24ms
+
+ActionView::Template::Error (undefined local variable or method `projectsUsers_path' for #<#<Class:0x007f8f778c8a08>:0x007f8f76c9fbf0>):
+    1: = form_for @project_user, :url => projectsUsers_path, :html => { :multipart => true } do |f|
+    2:   - if @project_user.errors.any?
+    3:     #error_explanation
+    4:       %h2= "#{pluralize(@project_user.errors.count, "error")} prohibited this project_user from being saved:"
+  app/views/project_users/_form.html.haml:1:in `_app_views_project_users__form_html_haml___2721832608133294695_70127074927960'
+  app/views/project_users/new.html.haml:3:in `_app_views_project_users_new_html_haml___1784764921630757179_70127074997220'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.1ms)
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:02:07 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (12.2ms)
+  Rendered project_users/new.html.haml within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined local variable or method `projects_users_path' for #<#<Class:0x007f8f778c8a08>:0x007f8f76a213b0>):
+    1: = form_for @project_user, :url => projects_users_path, :html => { :multipart => true } do |f|
+    2:   - if @project_user.errors.any?
+    3:     #error_explanation
+    4:       %h2= "#{pluralize(@project_user.errors.count, "error")} prohibited this project_user from being saved:"
+  app/views/project_users/_form.html.haml:1:in `_app_views_project_users__form_html_haml___2721832608133294695_70127073071840'
+  app/views/project_users/new.html.haml:3:in `_app_views_project_users_new_html_haml___1784764921630757179_70127074997220'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.6ms)
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:02:28 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (11.8ms)
+  Rendered project_users/new.html.haml within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined local variable or method `projects_user_path' for #<#<Class:0x007f8f778c8a08>:0x007f8f72aa6a50>):
+    1: = form_for @project_user, :url => projects_user_path, :html => { :multipart => true } do |f|
+    2:   - if @project_user.errors.any?
+    3:     #error_explanation
+    4:       %h2= "#{pluralize(@project_user.errors.count, "error")} prohibited this project_user from being saved:"
+  app/views/project_users/_form.html.haml:1:in `_app_views_project_users__form_html_haml___2721832608133294695_70127040281520'
+  app/views/project_users/new.html.haml:3:in `_app_views_project_users_new_html_haml___1784764921630757179_70127074997220'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.6ms)
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (11.8ms)
+  Rendered project_users/new.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:46 +0300
+
+
+Started POST "/project_users" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+Processing by ProjectUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RW/ZmVi02GVgGGi1X3w1lgguIihOKaC3vPO5cmG/4dc=", "project_user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f8f7781a5e8 @tempfile=#<Tempfile:/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/RackMultipart20140821-1446-726myy>, @original_filename="images.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"project_user[avatar]\"; filename=\"images.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-drfpae.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]'
+Command :: convert '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]' -auto-orient -resize "300x300>" '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p20140821-1446-o4mqxp'
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p20140821-1446-o4mqxp'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]'
+Command :: convert '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p.jpeg[0]' -auto-orient -resize "100x100>" '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p20140821-1446-1nb9pjw'
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1qxyi6p20140821-1446-1nb9pjw'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-1jd67p7.jpeg'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `project_users` (`avatar_content_type`, `avatar_file_name`, `avatar_file_size`, `avatar_updated_at`, `created_at`, `updated_at`) VALUES ('image/jpeg', 'images.jpeg', 1362, '2014-08-21 17:02:53', '2014-08-21 17:02:53', '2014-08-21 17:02:53')
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/project_users/1
+Completed 302 Found in 275ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/project_users/1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+Processing by ProjectUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT  `project_users`.* FROM `project_users`  WHERE `project_users`.`id` = 1 LIMIT 1
+  Rendered project_users/show.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 20:02:53 +0300
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:02:59 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[36mProjectUser Load (1.6ms)[0m  [1mSELECT `project_users`.* FROM `project_users`[0m
+  Rendered project_users/index.html.haml within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+     8: 
+     9:   - @project_users.each do |project_user|
+    10:     %tr
+    11:       %td= image_tag @user.avatar.url(:thumb)
+    12:       %td= link_to 'Show', project_user
+    13:       %td= link_to 'Edit', edit_project_user_path(project_user)
+    14:       %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  app/views/project_users/index.html.haml:11:in `block in _app_views_project_users_index_html_haml__1329129980075865282_70127073052400'
+  app/views/project_users/index.html.haml:9:in `_app_views_project_users_index_html_haml__1329129980075865282_70127073052400'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.1ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:02:59 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT `project_users`.* FROM `project_users`
+  Rendered project_users/index.html.haml within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+     8: 
+     9:   - @project_users.each do |project_user|
+    10:     %tr
+    11:       %td= image_tag @user.avatar.url(:thumb)
+    12:       %td= link_to 'Show', project_user
+    13:       %td= link_to 'Edit', edit_project_user_path(project_user)
+    14:       %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  app/views/project_users/index.html.haml:11:in `block in _app_views_project_users_index_html_haml__1329129980075865282_70127081395340'
+  app/views/project_users/index.html.haml:9:in `_app_views_project_users_index_html_haml__1329129980075865282_70127081395340'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.7ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:03:43 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[36mProjectUser Load (0.3ms)[0m  [1mSELECT `project_users`.* FROM `project_users`[0m
+  Rendered project_users/index.html.haml within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+     8: 
+     9:   - @project_users.each do |project_user|
+    10:     %tr
+    11:       %td= image_tag @project_user.avatar.url(:thumb)
+    12:       %td= link_to 'Show', project_user
+    13:       %td= link_to 'Edit', edit_project_user_path(project_user)
+    14:       %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  app/views/project_users/index.html.haml:11:in `block in _app_views_project_users_index_html_haml__1329129980075865282_70127075663340'
+  app/views/project_users/index.html.haml:9:in `_app_views_project_users_index_html_haml__1329129980075865282_70127075663340'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.3ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:03:54 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT `project_users`.* FROM `project_users`
+  Rendered project_users/index.html.haml within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `avatar' for #<ProjectUser::ActiveRecord_Relation:0x007f8f76ff2258>):
+     8: 
+     9:   - @project_users.each do |project_user|
+    10:     %tr
+    11:       %td= image_tag @project_users.avatar.url(:thumb)
+    12:       %td= link_to 'Show', project_user
+    13:       %td= link_to 'Edit', edit_project_user_path(project_user)
+    14:       %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  app/views/project_users/index.html.haml:11:in `block in _app_views_project_users_index_html_haml__1329129980075865282_70127076737500'
+  app/views/project_users/index.html.haml:9:in `_app_views_project_users_index_html_haml__1329129980075865282_70127076737500'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.3ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:04:10 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[36mProjectUser Load (0.5ms)[0m  [1mSELECT `project_users`.* FROM `project_users`[0m
+  Rendered project_users/index.html.haml within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+     8: 
+     9:   - @project_users.each do |project_user|
+    10:     %tr
+    11:       %td= image_tag @project_user.avatar.url(:thumb)
+    12:       %td= link_to 'Show', project_user
+    13:       %td= link_to 'Edit', edit_project_user_path(project_user)
+    14:       %td= link_to 'Destroy', project_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  app/views/project_users/index.html.haml:11:in `block in _app_views_project_users_index_html_haml__1329129980075865282_70127081670200'
+  app/views/project_users/index.html.haml:9:in `_app_views_project_users_index_html_haml__1329129980075865282_70127081670200'
+
+
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/motazelshaer/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.0ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT `project_users`.* FROM `project_users`
+  Rendered project_users/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:23 +0300
+
+
+Started GET "/project_users/1" for 127.0.0.1 at 2014-08-21 20:04:28 +0300
+Processing by ProjectUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjectUser Load (2.1ms)[0m  [1mSELECT  `project_users`.* FROM `project_users`  WHERE `project_users`.`id` = 1 LIMIT 1[0m
+  Rendered project_users/show.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:04:31 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[35mProjectUser Load (0.9ms)[0m  SELECT `project_users`.* FROM `project_users`
+  Rendered project_users/index.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/project_users/new" for 127.0.0.1 at 2014-08-21 20:04:33 +0300
+Processing by ProjectUsersController#new as HTML
+  Rendered project_users/_form.html.haml (8.0ms)
+  Rendered project_users/new.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project_users" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+Processing by ProjectUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RW/ZmVi02GVgGGi1X3w1lgguIihOKaC3vPO5cmG/4dc=", "project_user"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f8f73647698 @tempfile=#<Tempfile:/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/RackMultipart20140821-1446-1jqcgt0>, @original_filename="images.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"project_user[avatar]\"; filename=\"images.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-12jnlyn.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]'
+Command :: convert '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]' -auto-orient -resize "300x300>" '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt420140821-1446-g82lba'
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt420140821-1446-g82lba'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]'
+Command :: convert '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt4.jpeg[0]' -auto-orient -resize "100x100>" '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt420140821-1446-d1zhdy'
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-166eqt420140821-1446-d1zhdy'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/p2/0s75g4h50p7fbr_cr7z99krc0000gn/T/59b514174bffe4ae402b3d63aad79fe020140821-1446-qktk9c.jpeg'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `project_users` (`avatar_content_type`, `avatar_file_name`, `avatar_file_size`, `avatar_updated_at`, `created_at`, `updated_at`) VALUES ('image/jpeg', 'images.jpeg', 1362, '2014-08-21 17:04:37', '2014-08-21 17:04:37', '2014-08-21 17:04:37')
+  [1m[36m (20.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/project_users/2
+Completed 302 Found in 287ms (ActiveRecord: 20.8ms)
+
+
+Started GET "/project_users/2" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+Processing by ProjectUsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProjectUser Load (0.3ms)[0m  SELECT  `project_users`.* FROM `project_users`  WHERE `project_users`.`id` = 2 LIMIT 1
+  Rendered project_users/show.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 20:04:37 +0300
+
+
+Started GET "/project_users" for 127.0.0.1 at 2014-08-21 20:04:39 +0300
+Processing by ProjectUsersController#index as HTML
+  [1m[36mProjectUser Load (3.8ms)[0m  [1mSELECT `project_users`.* FROM `project_users`[0m
+  Rendered project_users/index.html.haml within layouts/application (13.1ms)
+Completed 200 OK in 49ms (Views: 44.0ms | ActiveRecord: 3.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
