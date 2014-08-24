@@ -7,6 +7,19 @@
 	%b Description:
 	= @project.description
 
+= link_to 'add User Story', new_user_story_path()
+|
 = link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
+
+%br
+%br
+%br
+
+%h5 That is each project User stories:
+%ul
+	-@project.user_stories.each do |story|
+		%li
+			= story.name
+			= link_to 'Show', user_story_path
