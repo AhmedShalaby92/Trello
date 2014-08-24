@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+		session[:project_id] = @project.id
   	end
 
 	def new

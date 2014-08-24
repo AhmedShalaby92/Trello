@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+
+  resources :user_stories
+
   get 'projects/index'
 
   devise_for :users

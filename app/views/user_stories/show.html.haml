@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user_story.name
+%p
+  %b Descp:
+  = @user_story.descp
+%p
+  %b State:
+  = @user_story.state
+
+= link_to 'add Task', new_task_path
+|
+= link_to 'Edit', edit_user_story_path(@user_story)
+\|
+= link_to 'Back', user_stories_path
+
+%h5 Tasks for this User story:
+%ul
+  - @user_story.tasks.each do |task|
+    %li
+      =task.name
