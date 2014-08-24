@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'mysql2'
-
+gem 'devise'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
