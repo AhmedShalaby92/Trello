@@ -1,0 +1,12 @@
+%h1
+	Projects
+
+- @projects.each do |project|
+	=project.name
+	=project.description
+	%br
+
+
+%p
+	= link_to 'New Project', new_project_path
+
