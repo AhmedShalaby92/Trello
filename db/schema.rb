@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824122750) do
+ActiveRecord::Schema.define(version: 20140824125104) do
+
   create_table "members", force: true do |t|
     t.string   "user_id"
     t.text     "project_id"

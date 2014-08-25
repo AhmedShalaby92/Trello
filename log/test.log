@@ -1,1 +1,0 @@
-Mysql2::Error: No database selected: SHOW TABLES LIKE 'schema_migrations'
