@@ -22,4 +22,5 @@
 	-@project.user_stories.each do |story|
 		%li
 			= story.name
+
 			= link_to 'show','user_stories/'+story.id.to_s

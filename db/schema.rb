@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140824125104) do
+
 
   create_table "members", force: true do |t|
     t.string   "user_id"
@@ -39,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140824125104) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "state"
+    t.boolean  "state",         default: false
     t.integer  "user_story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140824125104) do
   create_table "user_stories", force: true do |t|
     t.string   "name"
     t.text     "descp"
-    t.string   "state"
+    t.string   "state",      default: "To Do"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
