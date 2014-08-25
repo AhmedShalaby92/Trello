@@ -34199,3 +34199,4336 @@ Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 15:02:3
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 15:02:35 +0300
 >>>>>>> 7347f882756ddc1cbcdab0a6f38aade11415caef
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUserStories (20140824083511)
+  [1m[35m (201.9ms)[0m  CREATE TABLE `user_stories` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `descp` text, `state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140824083511')
+  [1m[36m (99.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddProjectIdtoUserStory (20140824091830)
+  [1m[35m (574.5ms)[0m  ALTER TABLE `user_stories` ADD `project_id` int(11)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140824091830')
+  [1m[36m (152.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTasks (20140824104256)
+  [1m[35m (231.0ms)[0m  CREATE TABLE `tasks` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `state` varchar(255), `user_stories_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140824104256')
+  [1m[36m (122.3ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeUserStoriesColumnNameInTasksToUserStory (20140824113513)
+  [1m[35m (670.7ms)[0m  ALTER TABLE `tasks` CHANGE `user_stories_id` `user_story_id` int(11) DEFAULT NULL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140824113513')
+  [1m[36m (101.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.5ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (21.2ms)
+Completed 200 OK in 175ms (Views: 134.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:19 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:23:20 +0300
+
+
+Started GET "/user_stories/new" for 127.0.0.1 at 2014-08-24 17:23:25 +0300
+Processing by UserStoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered user_stories/_form.html.haml (24.3ms)
+  Rendered user_stories/new.html.haml within layouts/application (31.6ms)
+Completed 200 OK in 51ms (Views: 47.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user_stories" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+Processing by UserStoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "user_story"=>{"name"=>"first story", "descp"=>"this is the first user story", "state"=>"doing"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `user_stories` (`created_at`, `descp`, `name`, `project_id`, `state`, `updated_at`) VALUES ('2014-08-24 14:24:21', 'this is the first user story', 'first story', 14, 'doing', '2014-08-24 14:24:21')[0m
+  [1m[35m (222.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/14
+Completed 302 Found in 303ms (ActiveRecord: 223.8ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:21 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:22 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:22 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:22 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:22 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:24:22 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:24:29 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.5ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1[0m
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.7ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:24:29 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1[0m
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/user_stories/1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 1 LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 1[0m
+  Rendered user_stories/show.html.haml within layouts/application (8.8ms)
+Completed 200 OK in 28ms (Views: 22.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:42 +0300
+
+
+Started GET "/user_stories" for 127.0.0.1 at 2014-08-24 17:26:46 +0300
+Processing by UserStoriesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.4ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`[0m
+  Rendered user_stories/index.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:26:58 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:27:05 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:27:06 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.3ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:21 +0300
+
+
+Started GET "/user_stories/new" for 127.0.0.1 at 2014-08-24 17:28:25 +0300
+Processing by UserStoriesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered user_stories/_form.html.haml (4.3ms)
+  Rendered user_stories/new.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user_stories" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+Processing by UserStoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "user_story"=>{"name"=>"second user story", "descp"=>"blakbjf", "state"=>"is doing"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_stories` (`created_at`, `descp`, `name`, `project_id`, `state`, `updated_at`) VALUES ('2014-08-24 14:28:48', 'blakbjf', 'second user story', 14, 'is doing', '2014-08-24 14:28:48')
+  [1m[36m (141.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/14
+Completed 302 Found in 151ms (ActiveRecord: 142.6ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:28:48 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:28:50 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:28:50 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:31:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (35.6ms)
+Completed 200 OK in 188ms (Views: 137.0ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:23 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:31:26 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:31:26 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 6ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:31:30 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4[0m
+  Rendered projects/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 29ms (Views: 21.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:36 +0300
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-08-24 17:31:39 +0300
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered projects/_form.html.haml (25.9ms)
+  Rendered projects/new.html.haml within layouts/application (31.5ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "project"=>{"name"=>"project 2", "description"=>"kdghlwfg"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `projects` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-24 14:31:47', 'kdghlwfg', 'project 2', '2014-08-24 14:31:47')[0m
+  [1m[35m (54.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `members` (`created_at`, `project_id`, `updated_at`, `user_id`) VALUES ('2014-08-24 14:31:47', 15, '2014-08-24 14:31:47', 4)
+  [1m[36m (70.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/15
+Completed 302 Found in 141ms (ActiveRecord: 127.0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 15 LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 15
+  Rendered projects/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:31:48 +0300
+
+
+Started GET "/user_stories/new" for 127.0.0.1 at 2014-08-24 17:31:55 +0300
+Processing by UserStoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered user_stories/_form.html.haml (10.9ms)
+  Rendered user_stories/new.html.haml within layouts/application (13.9ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user_stories" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+Processing by UserStoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "user_story"=>{"name"=>"user story", "descp"=>"asfg", "state"=>"done"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 15 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_stories` (`created_at`, `descp`, `name`, `project_id`, `state`, `updated_at`) VALUES ('2014-08-24 14:32:08', 'asfg', 'user story', 15, 'done', '2014-08-24 14:32:08')[0m
+  [1m[35m (93.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/15
+Completed 302 Found in 102ms (ActiveRecord: 94.2ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 15 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 15[0m
+  Rendered projects/show.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:32:08 +0300
+
+
+Started GET "/user_stories/15" for 127.0.0.1 at 2014-08-24 17:32:13 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 15 LIMIT 1[0m
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=15):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.8ms)
+
+
+Started GET "/user_stories/15" for 127.0.0.1 at 2014-08-24 17:32:13 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.1ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 15 LIMIT 1[0m
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=15):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:34:22 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:34:24 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.3ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:34:24 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:35:35 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.1ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (17.8ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined local variable or method `show_user_story_path' for #<#<Class:0x0000000345aa58>:0x00000006cc0c80>):
+    22: 	-@project.user_stories.each do |story|
+    23: 		%li
+    24: 			= story.name
+    25: 			= link_to 'Show', show_user_story_path
+  app/views/projects/show.html.haml:25:in `block in _app_views_projects_show_html_haml__1218372134715962947_56974260'
+  app/views/projects/show.html.haml:22:in `_app_views_projects_show_html_haml__1218372134715962947_56974260'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-24 17:39:14 +0300
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4[0m
+  Rendered projects/index.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 46ms (Views: 24.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:15 +0300
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-08-24 17:39:22 +0300
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered projects/_form.html.haml (5.7ms)
+  Rendered projects/new.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4
+  Rendered projects/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:39:28 +0300
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-08-24 17:40:39 +0300
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered projects/_form.html.haml (2.4ms)
+  Rendered projects/new.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2014-08-24 17:40:44 +0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "project"=>{"name"=>"hjwge", "description"=>"ahgsf"}, "commit"=>"Create Project"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `projects` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-24 14:40:44', 'ahgsf', 'hjwge', '2014-08-24 14:40:44')
+  [1m[36m (151.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `members` (`created_at`, `project_id`, `updated_at`, `user_id`) VALUES ('2014-08-24 14:40:45', 16, '2014-08-24 14:40:45', 4)[0m
+  [1m[35m (69.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/16
+Completed 302 Found in 237ms (ActiveRecord: 224.0ms)
+
+
+Started GET "/projects/16" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 16 LIMIT 1
+  [1m[36mUserStory Load (0.4ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 16[0m
+  Rendered projects/show.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:40:45 +0300
+
+
+Started GET "/user_stories/new" for 127.0.0.1 at 2014-08-24 17:40:55 +0300
+Processing by UserStoriesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered user_stories/_form.html.haml (12.8ms)
+  Rendered user_stories/new.html.haml within layouts/application (14.7ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user_stories" for 127.0.0.1 at 2014-08-24 17:41:00 +0300
+Processing by UserStoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "user_story"=>{"name"=>"hgasf", "descp"=>"as", "state"=>"asdfasf"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 16 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `user_stories` (`created_at`, `descp`, `name`, `project_id`, `state`, `updated_at`) VALUES ('2014-08-24 14:41:00', 'as', 'hgasf', 16, 'asdfasf', '2014-08-24 14:41:00')
+  [1m[36m (65.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/16
+Completed 302 Found in 75ms (ActiveRecord: 66.4ms)
+
+
+Started GET "/projects/16" for 127.0.0.1 at 2014-08-24 17:41:00 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 16 LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 16
+  Rendered projects/show.html.haml within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined local variable or method `show_user_story_path' for #<#<Class:0x00000004c698d8>:0x000000068f0bc8>):
+    22: 	-@project.user_stories.each do |story|
+    23: 		%li
+    24: 			= story.name
+    25: 			= link_to 'Show', show_user_story_path
+  app/views/projects/show.html.haml:25:in `block in _app_views_projects_show_html_haml__1218372134715962947_37465820'
+  app/views/projects/show.html.haml:22:in `_app_views_projects_show_html_haml__1218372134715962947_37465820'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/projects/16" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 16 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 16[0m
+  Rendered projects/show.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:20 +0300
+
+
+Started GET "/user_stories/16" for 127.0.0.1 at 2014-08-24 17:41:22 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.4ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 16 LIMIT 1[0m
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=16):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started GET "/user_stories/16" for 127.0.0.1 at 2014-08-24 17:41:22 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.1ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 16 LIMIT 1[0m
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=16):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:41:36 +0300
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:42:03 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/user_stories/14" for 127.0.0.1 at 2014-08-24 17:42:03 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 14 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find UserStory with 'id'=14):
+  app/controllers/user_stories_controller.rb:74:in `set_user_story'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-24 17:59:40 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (no implicit conversion of Fixnum into String):
+    22: 	-@project.user_stories.each do |story|
+    23: 		%li
+    24: 			= story.name
+    25: 			= link_to 'user_stories/'+story.id
+  app/views/projects/show.html.haml:25:in `+'
+  app/views/projects/show.html.haml:25:in `block in _app_views_projects_show_html_haml__1218372134715962947_29026460'
+  app/views/projects/show.html.haml:22:in `_app_views_projects_show_html_haml__1218372134715962947_29026460'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4[0m
+  Rendered projects/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 17:59:41 +0300
+
+
+Started GET "/projects/" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4[0m
+  Rendered projects/index.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:11 +0300
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-08-24 18:00:15 +0300
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered projects/_form.html.haml (12.8ms)
+  Rendered projects/new.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "project"=>{"name"=>"dsfgds", "description"=>"sdfsdf"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `projects` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-24 15:00:18', 'sdfsdf', 'dsfgds', '2014-08-24 15:00:18')[0m
+  [1m[35m (94.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `members` (`created_at`, `project_id`, `updated_at`, `user_id`) VALUES ('2014-08-24 15:00:18', 17, '2014-08-24 15:00:18', 4)
+  [1m[36m (69.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/17
+Completed 302 Found in 172ms (ActiveRecord: 164.0ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17
+  Rendered projects/show.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:18 +0300
+
+
+Started GET "/user_stories/new" for 127.0.0.1 at 2014-08-24 18:00:21 +0300
+Processing by UserStoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered user_stories/_form.html.haml (4.5ms)
+  Rendered user_stories/new.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user_stories" for 127.0.0.1 at 2014-08-24 18:00:25 +0300
+Processing by UserStoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mgAuBUkY+QXoYlUs+Dp9llQl+eEfJ890uhBh2yy+dGs=", "user_story"=>{"name"=>"werwe", "descp"=>"werwe", "state"=>"werw"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `user_stories` (`created_at`, `descp`, `name`, `project_id`, `state`, `updated_at`) VALUES ('2014-08-24 15:00:25', 'werwe', 'werwe', 17, 'werw', '2014-08-24 15:00:25')[0m
+  [1m[35m (285.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/17
+Completed 302 Found in 294ms (ActiveRecord: 286.9ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:25 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17[0m
+  Rendered projects/show.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:26 +0300
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:31 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35mUserStory Load (0.3ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17
+  Rendered projects/show.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:32 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17[0m
+  Rendered projects/show.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:32 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17
+  Rendered projects/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:33 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17[0m
+  Rendered projects/show.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/17" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 17
+  Rendered projects/show.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 18:00:47 +0300
+
+
+Started GET "/projects/user_stories/5" for 127.0.0.1 at 2014-08-24 18:00:49 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/5"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.3ms)
+
+
+Started GET "/projects/user_stories/5" for 127.0.0.1 at 2014-08-24 18:00:49 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/5"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.0ms)
+
+
+Started GET "/user_stories/2" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 2 LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 17 LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 2
+  Rendered user_stories/show.html.haml within layouts/application (30.0ms)
+Completed 200 OK in 53ms (Views: 25.8ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:22 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-24 18:01:23 +0300
+
+
+Started GET "/user_stories" for 127.0.0.1 at 2014-08-24 18:01:24 +0300
+Processing by UserStoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT `user_stories`.* FROM `user_stories`
+  Rendered user_stories/index.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:12:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.4ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (34.3ms)
+Completed 200 OK in 510ms (Views: 460.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:01 +0300
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:12:03 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/1"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (47.1ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:12:03 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/1"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.4ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:12:32 +0300
+
+
+Started GET "/projects/user_stories/2" for 127.0.0.1 at 2014-08-25 10:12:37 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/2"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.1ms)
+
+
+Started GET "/projects/user_stories/2" for 127.0.0.1 at 2014-08-25 10:12:37 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/2"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-25 10:14:56 +0300
+
+TypeError (no implicit conversion of Symbol into String):
+  config/routes.rb:9:in `+'
+  config/routes.rb:9:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (55.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4[0m
+  Rendered projects/index.html.haml within layouts/application (38.5ms)
+Completed 200 OK in 85ms (Views: 47.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:11 +0300
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (15.3ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:15:18 +0300
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:15:20 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/1"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (43.2ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:15:20 +0300
+
+ActionController::RoutingError (No route matches [GET] "/projects/user_stories/1"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmed/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.4ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:16:02 +0300
+
+SyntaxError (/home/ahmed/Trello/config/routes.rb:9: syntax error, unexpected ':', expecting keyword_end
+  get 'projects/user_stories/':id =>'user_stories#show'
+                               ^):
+  config/routes.rb:9: syntax error, unexpected ':', expecting keyword_end
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:17:09 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+Completed 500 Internal Server Error in 26ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/user_stories_controller.rb:14:in `show'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:38 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:39 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:39 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:39 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:39 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:17:39 +0300
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:17:40 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/user_stories_controller.rb:14:in `show'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.7ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:17:40 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/user_stories_controller.rb:14:in `show'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:19:34 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  Rendered user_stories/show.html.haml within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2: 
+    3: %p
+    4:   %b Name:
+    5:   = @user_story.name
+    6: %p
+    7:   %b Descp:
+    8:   = @user_story.descp
+  app/views/user_stories/show.html.haml:5:in `_app_views_user_stories_show_html_haml___230389514354479713_41141760'
+
+
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ahmed/.rvm/gems/ruby-2.1.2@app_trello/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.8ms)
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.4ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 1 LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mTask Load (0.5ms)[0m  [1mSELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 1[0m
+  Rendered user_stories/show.html.haml within layouts/application (27.8ms)
+Completed 200 OK in 92ms (Views: 41.6ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:08 +0300
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:20:19 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:20 +0300
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:20:21 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 1 LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 1
+  Rendered user_stories/show.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 12.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:26 +0300
+
+
+Started GET "/projects/user_stories/2" for 127.0.0.1 at 2014-08-25 10:20:29 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.3ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 2 LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mTask Load (0.6ms)[0m  [1mSELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 2[0m
+  Rendered user_stories/show.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.1ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:33 +0300
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2014-08-25 10:20:34 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 15 LIMIT 1
+  [1m[36mUserStory Load (0.4ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 15[0m
+  Rendered projects/show.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:35 +0300
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:20:47 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1[0m
+  [1m[35mUserStory Load (0.2ms)[0m  SELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14
+  Rendered projects/show.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT `projects`.* FROM `projects` INNER JOIN `members` ON `members`.`project_id` = `projects`.`id` WHERE `members`.`user_id` = 4
+  Rendered projects/index.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:20:54 +0300
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mUserStory Load (0.1ms)[0m  [1mSELECT `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`project_id` = 14[0m
+  Rendered projects/show.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/user_stories.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/user_stories.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-25 10:22:36 +0300
+
+
+Started GET "/projects/user_stories/1" for 127.0.0.1 at 2014-08-25 10:22:39 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.2ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 1 LIMIT 1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 1[0m
+  Rendered user_stories/show.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 18.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/user_stories/2" for 127.0.0.1 at 2014-08-25 10:22:43 +0300
+Processing by UserStoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUserStory Load (0.1ms)[0m  [1mSELECT  `user_stories`.* FROM `user_stories`  WHERE `user_stories`.`id` = 2 LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  `projects`.* FROM `projects`  WHERE `projects`.`id` = 14 LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks`  WHERE `tasks`.`user_story_id` = 2[0m
+  Rendered user_stories/show.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.7ms)
