@@ -22,4 +22,7 @@
 	-@project.user_stories.each do |story|
 		%li
 			= story.name
+			|
+			= story.state
+			|
 			= link_to 'Show', user_story_path

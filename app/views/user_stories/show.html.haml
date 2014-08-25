@@ -1,8 +1,7 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = @user_story.name
+  %h1= @user_story.name
 %p
   %b Descp:
   = @user_story.descp
@@ -17,7 +16,4 @@
 = link_to 'Back', user_stories_path
 
 %h5 Tasks for this User story:
-%ul
-  - @user_story.tasks.each do |task|
-    %li
-      =task.name
+= check_box_tag "state", "false" 
