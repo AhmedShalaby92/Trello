@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task.id = params[:user_story_id]
   end
 
   # GET /tasks/1/edit
@@ -25,7 +26,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @current_user_story = UserStory.find(session[:user_story_id])
+    @current_user_story = UserStory.find(params[:task][:user_story_id])
     @current_user_story.tasks << @task
     respond_to do |format|
       if @task.save

@@ -5,7 +5,7 @@
       %ul
         - @task.errors.full_messages.each do |msg|
           %li= msg
-
+  = f.hidden_field :user_story_id, value: @task.id
   .field
     = f.label :name
     = f.text_field :name

@@ -1,6 +1,5 @@
 class UserStoriesController < ApplicationController
   before_action :set_user_story, only: [ :show,:edit, :update, :destroy]
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /user_stories
   # GET /user_stories.json
@@ -11,12 +10,14 @@ class UserStoriesController < ApplicationController
   # GET /user_stories/1
   # GET /user_stories/1.json
   def show
-    session[:user_story_id] = @user_story.id;
+    # session[:user_story_id] = @user_story.id;
   end
 
   # GET /user_stories/new
   def new
     @user_story = UserStory.new
+    @user_story.project_id = params[:project_id]
+    # @project_id = params[:project_id]
   end
 
   # GET /user_stories/1/edit
@@ -27,7 +28,7 @@ class UserStoriesController < ApplicationController
   # POST /user_stories.json
   def create
     @user_story = UserStory.new(user_story_params)
-    @current_project = Project.find(session[:project_id])
+    @current_project = Project.find_by_id(params[:user_story][:project_id])
     @current_project.user_stories << @user_story
     respond_to do |format|
       if @user_story.save
@@ -45,6 +46,8 @@ class UserStoriesController < ApplicationController
   def update
     respond_to do |format|
       if @user_story.update(user_story_params)
+        puts params.require(:user_story)[:state]
+        @user_story.state = params.require(:user_story)[:state]
         format.html { redirect_to @user_story, notice: 'User story was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_story }
       else
@@ -64,10 +67,6 @@ class UserStoriesController < ApplicationController
     end
   end
 
-  def set_project
-     @current_project = Project.find(session[:project_id])
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_story
@@ -76,6 +75,10 @@ class UserStoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_story_params
-      params.require(:user_story).permit(:name, :descp, :state,)
+      # puts "======================================================="
+      # puts params
+      # puts "======================================================="
+
+      params.require(:user_story).permit(:name, :descp, :state, :project_id)
     end
 end

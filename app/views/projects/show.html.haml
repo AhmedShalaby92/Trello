@@ -7,7 +7,7 @@
 	%b Description:
 	= @project.description
 
-= link_to 'add User Story', new_user_story_path()
+= link_to 'add User Story', 'user_stories/new/'+@project.id.to_s
 |
 = link_to 'Edit', edit_project_path(@project)
 |
@@ -25,7 +25,9 @@
 %ul
 	-@project.user_stories.each do |story|
 		%li
-			= story.name
-
-			= link_to 'show','user_stories/'+story.id.to_s
-
+			= form_for(story, remote: true) do |f|
+				= story.name
+				|
+				= link_to 'show','user_stories/show/'+story.id.to_s
+				|
+				= f.select :state, UserStory.states.keys.map{ |state| [state.titleize,state] }

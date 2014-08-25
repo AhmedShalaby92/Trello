@@ -9,7 +9,7 @@
   %b State:
   = @user_story.state
 
-= link_to 'add Task', new_task_path
+= link_to 'add Task', 'tasks/'+@user_story.id.to_s
 |
 = link_to 'Edit', edit_user_story_path(@user_story)
 \|
