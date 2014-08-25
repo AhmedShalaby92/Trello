@@ -42426,3 +42426,16 @@ Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.7ms)
 =======
 >>>>>>> 743f86c8137118e891b1fa98af7b1b072f851013
 >>>>>>> cd96830c19d47b3b8bdd41b0d8262d797d723357
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to ChangeColumnsDefault (20140824122750)
+  [1m[35m (74.1ms)[0m  ALTER TABLE `user_stories` CHANGE `state` `state` varchar(255) DEFAULT 'To Do'
+  [1m[36m (187.3ms)[0m  [1mALTER TABLE `tasks` CHANGE `state` `state` tinyint(1) DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140824122750')[0m
+  [1m[35m (61.2ms)[0m  COMMIT
+Migrating to AddOwnerToMember (20140825075903)
+  [1m[36m (255.2ms)[0m  [1mALTER TABLE `members` ADD `owner` tinyint(1) DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140825075903')[0m
+  [1m[35m (41.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m

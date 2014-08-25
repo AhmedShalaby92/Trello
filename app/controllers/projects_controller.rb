@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		session[:project_id] = @project.id
+		@users=User.all
   	end
 
 	def new
@@ -26,6 +27,7 @@ class ProjectsController < ApplicationController
 	      	@member = Member.new
 			@member.user_id=current_user.id
 			@member.project_id=@project.id
+			@member.owner=1
 			@member.save
 	        format.html { redirect_to @project, notice: 'Project was successfully created.' }
 	        format.json { render :show, status: :created, location: @project }
