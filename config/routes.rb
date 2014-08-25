@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'projects/index'
 
   get 'projects/user_stories/:id' =>'user_stories#show'
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :project_users
 
   resources :users

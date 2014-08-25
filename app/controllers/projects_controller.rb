@@ -7,13 +7,13 @@ class ProjectsController < ApplicationController
 
 	def show
 		session[:project_id] = @project.id
-		@users=User.all
   	end
 
 	def new
 		@project=Project.new
+		@users=User.where.not(id: current_user.id)
+		@member=@project.members.build
 	end
-
 
 	def edit
   	end
@@ -21,7 +21,11 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project= Project.new(project_params)
-		
+		params[:user][:id].each do |user|
+			if !user.empty?
+				@project.members.build(:user_id => user)
+			end
+		end
 	    respond_to do |format|
 	      if @project.save
 	      	@member = Member.new
