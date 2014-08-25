@@ -1,5 +1,5 @@
 class UserStoriesController < ApplicationController
-  before_action :set_user_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_story, only: [ :show,:edit, :update, :destroy]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /user_stories
