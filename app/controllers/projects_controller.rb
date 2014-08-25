@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 	 before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@projects =Project.all
+		@projects =Project.joins(:members).where(members: {user_id: current_user.id})
 	end
 
 	def show
@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
 			@member.user_id=current_user.id
 			@member.project_id=@project.id
 			@member.save
-			puts "============================================================="+@project.name
 	        format.html { redirect_to @project, notice: 'Project was successfully created.' }
 	        format.json { render :show, status: :created, location: @project }
 	      else
