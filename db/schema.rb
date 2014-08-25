@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140825075903) do
-
 
   create_table "members", force: true do |t|
     t.string   "user_id"
@@ -21,6 +19,11 @@ ActiveRecord::Schema.define(version: 20140825075903) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "owner",      default: false
+  end
+
+  create_table "new_users", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "project_users", force: true do |t|

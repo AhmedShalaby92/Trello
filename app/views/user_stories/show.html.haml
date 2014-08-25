@@ -16,5 +16,6 @@
 = link_to 'Back', user_stories_path
 
 %h5 Tasks for this User story:
-
-/ = check_box_tag "state", "false" 
+- @user_story.tasks.each do |task|
+  = form_for(task, remote: true) do |f|
+    #{task.name}: #{f.check_box :state , class: 'state'}
