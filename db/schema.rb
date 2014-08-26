@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 20140826145353) do
     t.boolean  "owner",      default: false
   end
 
-  create_table "new_users", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "project_users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -57,7 +52,6 @@ ActiveRecord::Schema.define(version: 20140826145353) do
     t.integer  "state",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "project_id"
   end
 
   create_table "user_story_files", force: true do |t|
