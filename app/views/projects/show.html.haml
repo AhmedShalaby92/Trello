@@ -30,4 +30,12 @@
 				|
 				= link_to 'show','user_stories/show/'+story.id.to_s
 				|
-				= f.select :state, UserStory.states.keys.map{ |state| [state.titleize,state] }
+				%span.user_story_state 
+					= f.select :state, UserStory.states.keys.map{ |state| [state.titleize,state] }
+
+
+
+
+
+
+
