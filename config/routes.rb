@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+
   resources :tasks
 
-  resources :user_stories
+  resources :user_stories do
+    resources :user_story_files
+  end 
 
   get 'projects/index'
 
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :project_users
   resources :users
-  resources :projects
+  resources :projects 
   root 'projects#index' , as: 'login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

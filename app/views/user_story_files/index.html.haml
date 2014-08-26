@@ -1,0 +1,17 @@
+%h1 Listing user_story_files
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @user_story_files.each do |user_story_file|
+    %tr
+      %td= link_to 'Show', user_story_user_story_files_path
+      %td= link_to 'Edit', edit_user_story_user_story_file_path(params[:user_story_id], user_story_file)
+      %td= link_to 'Destroy', user_story_user_story_file_path(params[:user_story_id], user_story_file), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User story file', new_user_story_user_story_file_path(params[:user_story_id])
