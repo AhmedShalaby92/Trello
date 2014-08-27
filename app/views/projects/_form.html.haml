@@ -10,6 +10,18 @@
         .controls
           = f.text_area :description, class: 'form-control formElement', required: true, placeholder: 'Project Description'
       = error_span(@project[:description])
+    .form-group
+      %center
+        .controls
+          = fields_for(@member) do |m|
+            .field
+              %center
+                = m.label "Add members"
+              %br
+                = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
+              %br
+
     %center
       = f.submit nil,class: 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'
+

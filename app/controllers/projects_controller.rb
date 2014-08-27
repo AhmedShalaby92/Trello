@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@member = current_user.members.where(project_id: params[:id]).last
+		@all_members = @project.users
   	end
 
 	def new

@@ -15,7 +15,7 @@
  */
  body{
  	background: url("layout/background.jpg");
- 	color: white;
+ 	/*color: white;*/
  }
  .avatar {
  	max-height: 50px;
