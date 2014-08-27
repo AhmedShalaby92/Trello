@@ -32,6 +32,13 @@
 				%span.user_story_state 
 					= f.select :state, UserStory.states.keys.map{ |state| [state.titleize,state] }
 
+%br
+
+%h5 All members
+-@all_members.each do |member|
+	= member.username
+	%br
+
 
 
 

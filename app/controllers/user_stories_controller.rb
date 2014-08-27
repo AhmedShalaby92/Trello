@@ -18,7 +18,8 @@ class UserStoriesController < ApplicationController
   def new
     @user_story = UserStory.new
     @user_story.project_id = params[:project_id]
-    @users=User.all
+    @user_ids=Member.select(:user_id).where(project_id: @user_story.project_id)
+    @users=User.where("id IN (?)",@user_ids)
     @story_member=@user_story.user_story_members.build
   end
 
@@ -85,10 +86,6 @@ class UserStoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_story_params
-      # puts "======================================================="
-      # puts params
-      # puts "======================================================="
-
       params.require(:user_story).permit(:name, :descp, :state, :project_id)
     end
 end
