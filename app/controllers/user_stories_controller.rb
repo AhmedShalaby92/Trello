@@ -12,6 +12,7 @@ class UserStoriesController < ApplicationController
   def show
     @project_id=@user_story.project_id.to_s
     @member = current_user.members.where(project_id: @project_id).last
+    @all_members = @user_story.users
   end
 
   # GET /user_stories/new

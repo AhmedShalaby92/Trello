@@ -21,6 +21,7 @@
 		- @user_story.user_story_files.each do |file|
 			%li= file.document_file_name 
 
+
 		%h5 Tasks for this User story:
 		%ul
 		- @user_story.tasks.each do |task|
@@ -31,3 +32,11 @@
 				-else 
 					%li
 						#{task.name}: #{f.check_box :state , class: 'state'}
+
+		%h5 All members:
+		-@all_members.each do |member|
+			.media
+				%a.pull-left
+					%img.media-object.profileAvatar{:src => "#{member.avatar.url(:thumb)}"}
+				 
+				= member.username
