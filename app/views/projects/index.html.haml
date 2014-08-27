@@ -1,12 +1,10 @@
 %h1
 	Projects
-
-- @projects.each do |project|
-	.bla
-		= link_to project.name , 'projects/'+project.id.to_s
+%center
+	.projectContainer
+		- @projects.each do |project|
+			%a{:href => "projects/#{project.id.to_s}"}
+				.well= project.name
 	
-
-
-%p
-	= link_to 'New Project', new_project_path
+	= link_to 'New Project', new_project_path, :class => 'newProjectBtn btn btn-default'
 

@@ -1,25 +1,15 @@
-= form_for(@project) do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@project.errors.count, "error")
-        prohibited this project from being saved:
-      %ul
-        - @project.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :name
-    %br
-      = f.text_field :name
-  .field
-    = f.label :description
-    %br
-      = f.text_area :description
-  = fields_for(@member) do |m|
-    .field
-      = m.label "Add members"
-    %br
-      = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
-    %br
-  .actions
-    = f.submit
+.well
+  = form_for @project, html: { class: "form form-horizontal project" } do |f|
+    .form-group
+      %center
+        .controls
+          = f.text_field :name, class: 'form-control formElement', required: true, placeholder: 'Project name'
+      = error_span(@project[:name])
+    .form-group
+      %center
+        .controls
+          = f.text_area :description, class: 'form-control formElement', required: true, placeholder: 'Project Description'
+      = error_span(@project[:description])
+    %center
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'

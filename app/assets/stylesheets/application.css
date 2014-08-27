@@ -15,6 +15,7 @@
  */
  body{
  	background: url("layout/background.jpg");
+ 	color: white;
  }
  .avatar {
  	max-height: 50px;
@@ -24,7 +25,21 @@
  	position: 'center';
  	max-width: 50%;
  }
+
  .profileAvatar {
  	max-height: 180px;
  	max-width: 214px;
  }
+ .well {
+   background-color: rgba(245, 245, 245, 0.4);
+   color: black;
+}
+.projectContainer {
+	max-width: 50%;
+}
+.newProjectBtn {
+	width: 50% !important; 
+}
+.formElement {
+	width: 50% !important;
+}
