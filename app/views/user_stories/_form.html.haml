@@ -16,5 +16,11 @@
   .field
     = f.label :state
     = f.text_field :state
+  = fields_for(@story_member) do |m|
+    .field
+      = m.label "Add members"
+    %br
+      = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
+    %br
   .actions
     = f.submit 'Save'

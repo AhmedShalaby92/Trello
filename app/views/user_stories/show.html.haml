@@ -11,10 +11,11 @@
 = link_to 'add File', new_user_story_user_story_file_path(@user_story)	
 |
 = link_to 'add Task', 'tasks/'+@user_story.id.to_s
+-if @member.owner==true
+  |
+  = link_to 'Edit', edit_user_story_path(@user_story)
 |
-= link_to 'Edit', edit_user_story_path(@user_story)
-\|
-= link_to 'Back', user_stories_path
+= link_to 'Back', project_path(@project_id)
 
 %h5 Tasks for this User story:
 - @user_story.tasks.each do |task|
