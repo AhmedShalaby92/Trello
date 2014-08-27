@@ -1,40 +1,17 @@
-%p#notice= notice
+- model_class = Project
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-	%b Name:
-	= @project.name
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @project.name
 %p
-	%b Description:
-	= @project.description
-
--if @member.owner == true
-	= link_to 'add User Story', 'user_stories/new/'+@project.id.to_s
-	|
-	= link_to 'Edit', edit_project_path(@project)
-|
-\#{link_to 'Back', projects_path}
-
-%br
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @project.description
 
 
-%br
-%br
-
-%h5 That is each project User stories:
-%ul
-	-@project.user_stories.each do |story|
-		%li
-			= form_for(story, remote: true) do |f|
-				= story.name
-				|
-				= link_to 'show','user_stories/show/'+story.id.to_s
-				|
-				%span.user_story_state 
-					= f.select :state, UserStory.states.keys.map{ |state| [state.titleize,state] }
-
-
-
-
-
-
-
+= link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(@project), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
