@@ -1,0 +1,29 @@
+<div>
+	<center>
+		<div class="well profilePanel" >
+			<table class="table">
+				<tr>
+					<td>
+						<div class="media">
+							<a class= "pull-left">
+								<img class="media-object profileAvatar" src= <%= current_user.avatar.url %> >
+							</a>
+						</div>
+
+					</td>
+					<td>
+						<div>
+							<label>Name: </label>
+							<span><%= current_user.username %></span>
+						</div>
+						<div>
+							<label>E-mail: </label>
+							<span><%= current_user.email %></span>
+						</div>
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+	</center>
+</div>

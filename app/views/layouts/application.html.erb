@@ -8,30 +8,32 @@
 
 </head>
 <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- <div class="media"> -->
+      <% if user_signed_in? %>
+        <a class= "pull-left" href= <%= user_path(current_user.id) %> >
+          <img class="media-object avatar" src= <%= current_user.avatar.url(:thumb) %> >
+        </a>
+        <p class="navbar-nav navbar-text">
+          <strong><%= current_user.username %></strong>
+        </p>
+      <% end %>
+      <!-- </div> -->
+      <div id="log-in" class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-default navbar-btn' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-default navbar-btn'  %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-default navbar-btn'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'btn btn-default navbar-btn'  %>
+        <% end %>
+      </div>
+      <div class="navbar-left">
 
-<div>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-</div>
-
-<div id="log-in">
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.username %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
-</div>
-
-<%= yield %>
-
+      </div>
+    </div><!-- /.container-fluid -->
+  </nav>
+  <%= yield %>
 </body>
 </html>
