@@ -43,3 +43,7 @@
 .formElement {
 	width: 50% !important;
 }
+.halfPageWidth {
+	width: 50% !important;
+	text-align: left !important;
+}
