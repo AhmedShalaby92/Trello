@@ -21,3 +21,7 @@
 - @user_story.tasks.each do |task|
   = form_for(task, remote: true) do |f|
     #{task.name}: #{f.check_box :state , class: 'state'}
+
+%h1 All members:
+-@all_members.each do |member|
+  =member.username
