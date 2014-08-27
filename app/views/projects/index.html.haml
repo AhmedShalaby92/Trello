@@ -3,7 +3,7 @@
 
 - @projects.each do |project|
 	.bla
-		=project.name
+		= link_to project.name , 'projects/'+project.id.to_s
 	
 
 

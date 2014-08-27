@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827101706) do
+ActiveRecord::Schema.define(version: 20140827075058) do
 
   create_table "members", force: true do |t|
     t.string   "user_id"
@@ -68,6 +68,11 @@ ActiveRecord::Schema.define(version: 20140827101706) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.integer  "user_story_id"
+  end
+
+  create_table "user_story_members", force: true do |t|
+    t.string "user_id"
+    t.text   "user_story_id"
   end
 
   create_table "users", force: true do |t|

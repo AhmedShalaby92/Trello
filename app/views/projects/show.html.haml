@@ -7,16 +7,15 @@
 	%b Description:
 	= @project.description
 
-= link_to 'add User Story', 'user_stories/new/'+@project.id.to_s
-|
-= link_to 'Edit', edit_project_path(@project)
+-if @member.owner == true
+	= link_to 'add User Story', 'user_stories/new/'+@project.id.to_s
+	|
+	= link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
 
 %br
 
-
-=button_to "Add", project_path, method: :get  
 
 %br
 %br

@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+		@member = current_user.members.where(project_id: params[:id]).last
   	end
 
 	def new
@@ -15,6 +16,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
+		@user_ids=Member.select(:user_id).where(project_id: Project.find(params[:id]))
+		@users=User.where("id NOT IN (?)" , @user_ids)
+		@member=@project.members.build
   	end
 
 
@@ -43,6 +47,21 @@ class ProjectsController < ApplicationController
 
 
 	def update
+
+		params[:user][:id].each do |user|
+			if !user.empty?
+				@project.members.build(:user_id => user)
+			end
+		end
+		respond_to do |format|
+	      if @project.save
+	        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+	        format.json { render :show, status: :created, location: @project }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @product.errors, status: :unprocessable_entity }
+	      end
+	    end
 	end
 
 	def destory
