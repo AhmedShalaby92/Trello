@@ -1,19 +1,19 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |msg|
-          %li= msg
-  = f.hidden_field :user_story_id, value: @task.id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :state
-    = f.text_field :state
-  .actions
-    = f.submit 'Save'
+%center
+  .well.halfPageWidth
+    = form_for @task, html: { class: "form form-horizontal project" } do |f|
+      - if @task.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+          %ul
+            - @task.errors.full_messages.each do |msg|
+              %li= msg
+      = f.hidden_field :user_story_id, value: @task.id
+      .field
+        = f.text_field :name, class: 'form-control formElement', required: true, placeholder: 'Task Name'
+      .field
+        = f.text_area :description, class: 'form-control formElement', required: true, placeholder: 'Task Description'
+      .field
+        = f.text_field :state, class: 'form-control formElement', required: true, placeholder: 'Task State'
+      .actions
+        = f.submit nil,class: 'btn btn-primary'
+        = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'

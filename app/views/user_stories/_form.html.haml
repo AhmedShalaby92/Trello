@@ -1,26 +1,28 @@
-= form_for @user_story do |f|
-  - if @user_story.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user_story.errors.count, "error")} prohibited this user_story from being saved:"
-      %ul
-        - @user_story.errors.full_messages.each do |msg|
-          %li= msg
+%center
+  .well.halfPageWidth
+    = form_for @user_story, html: { class: "form form-horizontal project" } do |f|
+      - if @user_story.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@user_story.errors.count, "error")} prohibited this user_story from being saved:"
+          %ul
+            - @user_story.errors.full_messages.each do |msg|
+              %li= msg
 
-  = f.hidden_field :project_id, value: @user_story.project_id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :descp
-    = f.text_area :descp
-  .field
-    = f.label :state
-    = f.text_field :state
-  = fields_for(@story_member) do |m|
-    .field
-      = m.label "Add members"
-    %br
-      = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
-    %br
-  .actions
-    = f.submit 'Save'
+      = f.hidden_field :project_id, value: @user_story.project_id
+      
+      %center
+        .field
+          = f.text_field :name, class: 'form-control formElement', required: true, placeholder: 'User Story Name'
+        .field
+          = f.text_area :descp, class: 'form-control formElement', required: true, placeholder: 'User Story Description'
+        .field
+          = f.text_field :state, class: 'form-control formElement', required: true, placeholder: 'State'
+        = fields_for(@story_member) do |m|
+          .field
+            = m.label "Add members"
+            %br
+              = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
+            %br
+        .actions
+          = f.submit nil,class: 'btn btn-primary'
+          = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'

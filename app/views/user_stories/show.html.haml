@@ -1,23 +1,33 @@
-%p#notice= notice
+%p
+	%h1= @user_story.name
+%center
+	.well.halfPageWidth
+		%p
+			%b Descp:
+			= @user_story.descp
+		%p
+			%b State:
+			= @user_story.state
+		= link_to 'add File', new_user_story_user_story_file_path(@user_story)	
+		|
+		= link_to 'add Task', 'tasks/'+@user_story.id.to_s
+		-if @member.owner==true
+			|
+			= link_to 'Edit', edit_user_story_path(@user_story)
+		|
+		= link_to 'Back', project_path(@project_id)
+		%h5 Files attached for this User story:
+		%ul
+		- @user_story.user_story_files.each do |file|
+			%li= file.document_file_name 
 
-%p
-  %h1= @user_story.name
-%p
-  %b Descp:
-  = @user_story.descp
-%p
-  %b State:
-  = @user_story.state
-= link_to 'add File', new_user_story_user_story_file_path(@user_story)	
-|
-= link_to 'add Task', 'tasks/'+@user_story.id.to_s
--if @member.owner==true
-  |
-  = link_to 'Edit', edit_user_story_path(@user_story)
-|
-= link_to 'Back', project_path(@project_id)
-
-%h5 Tasks for this User story:
-- @user_story.tasks.each do |task|
-  = form_for(task, remote: true) do |f|
-    #{task.name}: #{f.check_box :state , class: 'state'}
+		%h5 Tasks for this User story:
+		%ul
+		- @user_story.tasks.each do |task|
+			= form_for(task, remote: true) do |f|
+				- if (task.state)
+					%li.lineThrough 
+						#{task.name}: #{f.check_box :state , class: 'state'}
+				-else 
+					%li
+						#{task.name}: #{f.check_box :state , class: 'state'}

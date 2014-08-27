@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get 'projects/user_stories/show/:id' =>'user_stories#show'
   get 'projects/user_stories/new/:project_id' =>'user_stories#new'
-  get 'projects/user_stories/show/tasks/:user_story_id' => 'tasks#new'
+  get 'productsjects/user_stories/show/tasks/:user_story_id' => 'tasks#new'
+  get '/user_stories/tasks/:user_story_id' => 'tasks#new'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 

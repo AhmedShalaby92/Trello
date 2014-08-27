@@ -17,6 +17,12 @@
  	background: url("layout/background.jpg");
  	/*color: white;*/
  }
+ h1{
+ 	color: white; 
+ }
+ strong {
+ 	color: black;
+ }
  .avatar {
  	max-height: 50px;
  }
@@ -46,4 +52,7 @@
 .halfPageWidth {
 	width: 50% !important;
 	text-align: left !important;
+}
+.lineThrough {
+	text-decoration: line-through !important;
 }
