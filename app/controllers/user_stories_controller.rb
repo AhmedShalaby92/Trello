@@ -10,13 +10,14 @@ class UserStoriesController < ApplicationController
   # GET /user_stories/1
   # GET /user_stories/1.json
   def show
-    @project_id=@user_story.project_id.to_s
+    @project_id=@user_story.project_id
     @member = current_user.members.where(project_id: @project_id).last
     @all_members = @user_story.users
   end
 
   # GET /user_stories/new
   def new
+    #TODO project.user_story.new
     @user_story = UserStory.new
     @user_story.project_id = params[:project_id]
     @user_ids=Member.select(:user_id).where(project_id: @user_story.project_id)
@@ -56,6 +57,11 @@ class UserStoriesController < ApplicationController
   # PATCH/PUT /user_stories/1
   # PATCH/PUT /user_stories/1.json
   def update
+    params[:user][:id].each do |user|
+      if !user.empty?
+        @user_story.user_story_members.build(:user_id => user)
+      end
+    end
     respond_to do |format|
       if @user_story.update(user_story_params)
         puts params.require(:user_story)[:state]

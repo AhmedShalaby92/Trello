@@ -6,17 +6,21 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+
+		#TODO fix relation 
 		@member = current_user.members.where(project_id: params[:id]).last
 		@all_members = @project.users
   	end
 
 	def new
 		@project=Project.new
+		#TODO remove member and make it by ajax
 		@users=User.where.not(id: current_user.id)
 		@member=@project.members.build
 	end
 
 	def edit
+		#current_user.projects(id: params[:id])
 		@user_ids=Member.select(:user_id).where(project_id: Project.find(params[:id]))
 		@users=User.where("id NOT IN (?)" , @user_ids)
 		@member=@project.members.build
@@ -66,6 +70,11 @@ class ProjectsController < ApplicationController
 	end
 
 	def destory
+		@project.destroy
+    	respond_to do |format|
+      		format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      		format.json { head :no_content }
+    	end
 	end
 
 	private
