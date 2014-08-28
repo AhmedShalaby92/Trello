@@ -16,8 +16,12 @@
 			%ul
 				- @project.user_stories.each do |story|
 					%li
-						%a{:href => "#{user_story_path(story.id)}"}
-							=story.name
+						%div
+							%a{:href => "#{user_story_path(story.id)}"}
+								=story.name
+						%div
+							= form_for story, url: changestate_path(story), html: { class: "form form-horizontal formElement",  remote: true } do |f|
+								= f.select :state, ["to_be_do", "doing", "done"], class: 'form-control', required: true, placeholder: 'State'
 
 		-if @member.owner == true
 			= link_to 'Add User Story', 'user_stories/new/' + "#{@project.id}", :class => 'btn btn-default'

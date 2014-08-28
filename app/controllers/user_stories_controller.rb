@@ -1,5 +1,5 @@
 class UserStoriesController < ApplicationController
-  before_action :set_user_story, only: [ :show,:edit, :update, :destroy]
+  before_action :set_user_story, only: [ :show,:edit, :update, :destroy, :changestate]
 
   # GET /user_stories
   # GET /user_stories.json
@@ -67,12 +67,28 @@ class UserStoriesController < ApplicationController
         puts params.require(:user_story)[:state]
         @user_story.state = params.require(:user_story)[:state]
         format.html { redirect_to @user_story, notice: 'User story was successfully updated.' }
+        format.js
         format.json { render :show, status: :ok, location: @user_story }
       else
         format.html { render :edit }
         format.json { render json: @user_story.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def changestate
+    respond_to do |format|
+      if @user_story.update(user_story_params)
+        puts params.require(:user_story)[:state]
+        @user_story.state = params.require(:user_story)[:state]
+        format.html { redirect_to @user_story, notice: 'User story was successfully updated.' }
+        format.js
+        format.json { render :show, status: :ok, location: @user_story }
+      else
+        format.html { render :edit }
+        format.json { render json: @user_story.errors, status: :unprocessable_entity }
+      end
+    end   
   end
 
   # DELETE /user_stories/1

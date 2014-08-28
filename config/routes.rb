@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'projects/user_stories/new/:project_id' =>'user_stories#new'
   get 'productsjects/user_stories/show/tasks/:user_story_id' => 'tasks#new'
   get '/user_stories/tasks/:user_story_id' => 'tasks#new'
+  patch '/user_stories/change_state/:id' => 'user_stories#changestate', as: "changestate" 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 

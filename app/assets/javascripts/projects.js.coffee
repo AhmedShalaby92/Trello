@@ -3,9 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
   $('.user_story_state').change(->
-    alert "in the name of allah"
     $(this).parents("form:first").submit()
     return
+  )
+
+  $(".formElement").change(->
+  	console.log $(this)
+  	$(this).submit();
+  	return 
   )
   return
 
