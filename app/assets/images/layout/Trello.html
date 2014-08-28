@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:3000/user_stories/tasks/3 -->
+<html><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Trello</title>
+  <link data-turbolinks-track="true" href="http://localhost:3000/assets/bootstrap_and_overrides.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/project_users.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/projects.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/scaffolds.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/tasks.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/user_stories.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/user_story_files.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/users_controller.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/application.css?body=1" media="all" rel="stylesheet">
+  <script data-turbolinks-track="true" src="./Trello_files/jquery.js"></script><style type="text/css"></style>
+<script data-turbolinks-track="true" src="./Trello_files/jquery_ujs.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/transition.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/alert.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/modal.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/dropdown.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/scrollspy.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/tab.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/tooltip.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/popover.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/button.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/collapse.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/carousel.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/affix.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/bootstrap.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/turbolinks.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/bootstrap(1).js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/project_users.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/projects.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/tasks.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/user_stories.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/user_story_files.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/users_controller.js"></script>
+<script data-turbolinks-track="true" src="./Trello_files/application.js"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="Cv1OBsuigpClKo+r3aMxUJJpIO+TPb0Q3SRcdidhKlA=" name="csrf-token">
+
+</head>
+<body cz-shortcut-listen="true">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- <div class="media"> -->
+      <a class="pull-left" href="http://localhost:3000/users/3">
+        <img class="media-object avatar" src="./Trello_files/profile_pic.jpg">
+      </a>
+      <p class="navbar-nav navbar-text">
+        <strong>Motaz Osama</strong>
+      </p>
+      <!-- </div> -->
+      <div id="log-in" class="navbar-nav navbar-right">
+        <a class="btn btn-default navbar-btn" href="http://localhost:3000/users/edit">Edit profile</a> |
+        <a class="btn btn-default navbar-btn" data-method="delete" href="http://localhost:3000/users/sign_out" rel="nofollow">Logout</a>
+      </div>
+      
+      <div class="navbar-left">
+
+      </div>
+
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+  <h1>New task</h1>
+<center>
+  <div class="well halfPageWidth">
+    <form accept-charset="UTF-8" action="http://localhost:3000/tasks" class="form form-horizontal project" id="new_task_3" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="Cv1OBsuigpClKo+r3aMxUJJpIO+TPb0Q3SRcdidhKlA="></div>    <input id="task_user_story_id" name="task[user_story_id]" type="hidden" value="3">
+        <div class="field">
+          <input class="form-control formElement" id="task_name" name="task[name]" placeholder="Task Name" required="required" type="text">
+        </div>
+        <div class="field">
+          <textarea class="form-control formElement" id="task_description" name="task[description]" placeholder="Task Description" required="required"></textarea>
+        </div>
+        <div class="field">
+          <input class="form-control formElement" id="task_state" name="task[state]" placeholder="Task State" required="required" type="text" value="false">
+        </div>
+        <div class="actions">
+          <input class="btn btn-primary" name="commit" type="submit" value="Create Task">
+          <a class="btn btn-default" href="http://localhost:3000/projects">Cancel</a>
+        </div>
+    </form>
+  </div>
+</center>
+<a href="http://localhost:3000/tasks">Back</a>
+
+ 
+
+
+</body></html>

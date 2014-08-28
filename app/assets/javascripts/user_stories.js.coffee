@@ -3,10 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   $(".state").change(->
-    $(this).parents("form:first").submit()
+    elem = $(this);
+    elem.parents("form:first").submit()
+    $(elem[0].parentNode).toggleClass("lineThrough")
     return
   )
-  return
+   
+  $(".deleteTask").click (event) ->
+    $(event.currentTarget).parents("li:first").remove()
+    return
 
-
-
+ return

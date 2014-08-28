@@ -29,9 +29,11 @@
 				- if (task.state)
 					%li.lineThrough 
 						#{task.name}: #{f.check_box :state , class: 'state'}
+						= link_to "delete task", task,:method=> "delete", :class => "btn btn-danger deleteTask", :remote=> true
 				-else 
 					%li
 						#{task.name}: #{f.check_box :state , class: 'state'}
+						= link_to "delete task", task,:method=> "delete", :class => "btn btn-danger deleteTask", :remote=> true
 
 		%h5 All members:
 		-@all_members.each do |member|
