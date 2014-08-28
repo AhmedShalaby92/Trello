@@ -13,7 +13,7 @@
       .field
         = f.text_area :description, class: 'form-control formElement', required: true, placeholder: 'Task Description'
       .field
-        = f.text_field :state, class: 'form-control formElement', required: true, placeholder: 'Task State'
+        = f.check_box :state, class: 'form-control formElement', required: true, placeholder: 'Task State'
       .actions
         = f.submit nil,class: 'btn btn-primary'
         = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'
