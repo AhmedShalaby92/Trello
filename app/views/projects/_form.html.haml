@@ -12,14 +12,7 @@
       = error_span(@project[:description])
     .form-group
       %center
-        .controls
-          = fields_for(@member) do |m|
-            .field
-              %center
-                = m.label "Add members"
-              %br
-                = collection_select(:user , :id , @users , :id , :username ,{}, {:multiple => true })
-              %br
+        
 
     %center
       = f.submit nil,class: 'btn btn-primary'
