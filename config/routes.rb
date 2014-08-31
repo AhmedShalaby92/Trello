@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'projects/user_stories/new/:project_id' =>'user_stories#new'
   get 'productsjects/user_stories/show/tasks/:user_story_id' => 'tasks#new'
   get '/user_stories/tasks/:user_story_id' => 'tasks#new'
+
   patch '/user_stories/change_state/:id' => 'user_stories#changestate', as: "changestate" 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   resources :users
   resources :projects 
   root 'projects#index' , as: 'login'
+
+  post 'projects/add_members' =>'projects#add_members'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

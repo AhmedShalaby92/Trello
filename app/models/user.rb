@@ -4,9 +4,23 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable ,:validatable
 
+
   before_destroy :delete_owned_projects
+
+
+
   has_many :members, dependent: :destroy
-  has_many :projects , through: :members, dependent: :destroy
+  has_many :projects, dependent: :destroy
+  has_many :projects , through: :members
+
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    
+    end
+  end
+
+
   has_many :user_story_members 
   has_many :user_stories , through: :user_story_members, dependent: :destroy
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "../assets/thumb/missing.png"
