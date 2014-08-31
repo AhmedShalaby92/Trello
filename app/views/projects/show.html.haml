@@ -34,7 +34,6 @@
 		-@all_members.each do |member|
 			.media
 				%a.pull-left
-					%img.media-object.profileAvatar{:src => "#{member.avatar.url(:thumb)}"}
-				 
+					%img.media-object.avatar{:src => "#{member.avatar.url(:thumb)}"}
 				= member.username
 			
