@@ -7,5 +7,12 @@
 				.well= project.name
 	
 	= link_to 'New Project', new_project_path, :class => 'newProjectBtn btn btn-default'
+	= button_to 'show comments', show_comments_path, method: :get ,:class => 'newProjectBtn btn btn-default'
 
+	= form_tag comments_path  do
+		= label_tag "Add members"	
+		%br
+		= collection_select(:user , :id , @users , :id , :username ,{})
+		%br
+		= submit_tag "show comments", :name => nil
 	

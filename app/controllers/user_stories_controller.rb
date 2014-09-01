@@ -13,15 +13,15 @@ class UserStoriesController < ApplicationController
     @project_id=@user_story.project_id
     @member = current_user.members.where(project_id: @project_id).last
     @all_members = @user_story.users
-    @comments=@user_story.comments 
+    @comments=@user_story.user_comments 
   end
 
   def add_comment
-    Comment.create(content: params[:post_comment], user_id: current_user.id,user_story_id: params[:id],username: current_user.username)
+    UserComment.create(content: params[:post_comment], user_id: current_user.id,user_story_id: params[:id],username: current_user.username)
     redirect_to user_story_url(@user_story.id)
   end
 
-
+  
   # GET /user_stories/new
   def new
     #TODO project.user_story.new

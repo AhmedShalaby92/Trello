@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   post 'projects/add_members' =>'projects#add_members'
 
   post 'user_stories/add_comment' =>'user_stories#add_comment' , as: 'add_comment'
+
+  post 'project/comment' => 'projects#comment' , as: 'comments'
+
+  get 'project/show_comments' => 'projects#show_comment' , as: 'show_comments'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,27 @@
+%center
+	.well.halfPageWidth
+		%h1 Listing comments
+		%table
+			%thead
+				%tr
+					%th Project
+					%th User Story
+					%th comment
+					
+				%tbody
+					- @comments.each do |comment|
+						%tr
+							%td
+								=comment.project
+							%td
+								=comment.name
+							%td
+								=comment.content
+							%br	
+
+
+
+
+
+
+

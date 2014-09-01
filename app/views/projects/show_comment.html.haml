@@ -1,0 +1,30 @@
+%center
+	.well.halfPageWidth
+		%h1 Listing comments
+		%table
+			%thead
+				%tr
+					%th Project
+					%th User Story
+					%th Username
+					%th comment
+					%th{:colspan => "3"}
+				%tbody
+					- @comments.each do |comment|
+						%tr
+							%td
+								=comment.project
+							%td
+								=comment.name
+							%td
+								=comment.username
+							%td
+								=comment.content
+							%br	
+
+
+
+
+
+
+

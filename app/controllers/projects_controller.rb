@@ -14,6 +14,8 @@ class ProjectsController < ApplicationController
 	end
 	def index
 		@projects =Project.joins(:members).where(members: {user_id: current_user.id})
+		@users = User.all
+
 	end
 
 	def show
@@ -31,6 +33,15 @@ class ProjectsController < ApplicationController
 #			end
 #		end
 		@all_members = @project.users
+  	end
+
+  	def comment
+    	#@comments = User.find(params[:user][:id]).user_comments
+    	@comments=Project.joins(:user_stories => :user_comments).select('projects.name as "project",user_comments.content,user_stories.name').where('user_comments.user_id' => params[:user][:id])
+  	end
+
+  	def show_comment
+  		 @comments=Project.joins(:user_stories => :user_comments).select('projects.name as "project",user_comments.content,user_comments.username,user_stories.name')
   	end
 
 	def new

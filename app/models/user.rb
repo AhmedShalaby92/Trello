@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :projects , through: :members
 
 
-  has_many :comments , dependent: :destroy
+  has_many :user_comments , dependent: :destroy
 
 
   def self.search(search)
