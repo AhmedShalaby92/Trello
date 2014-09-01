@@ -10,6 +10,7 @@ class UserStoryFilesController < ApplicationController
   # GET /user_story_files/1
   # GET /user_story_files/1.json
   def show
+    
   end
 
   # GET /user_story_files/new

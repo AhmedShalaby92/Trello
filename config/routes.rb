@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :tasks
 
   resources :user_stories do
@@ -17,13 +20,15 @@ Rails.application.routes.draw do
   patch '/user_stories/change_state/:id' => 'user_stories#changestate', as: "changestate" 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-
+  #devise_for :admins
   resources :project_users
   resources :users
   resources :projects 
   root 'projects#index' , as: 'login'
 
   post 'projects/add_members' =>'projects#add_members'
+
+  post 'user_stories/add_comment' =>'user_stories#add_comment' , as: 'add_comment'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

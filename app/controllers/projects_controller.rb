@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	 before_action :set_project, only: [:show, :edit, :update, :destroy]
+	 before_action :set_project, only: [:show, :edit, :update, :destroy, :add_members]
 	 before_action :check , only: [:show, :edit, :update, :destroy]
 
 	def check
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		#TODO fix relation 
+		#current_user.projects.where(id: params[:project_id])
 		@owner_check = false
 		if(@project.user_id==current_user.id)
 			@owner_check=true
@@ -98,11 +99,15 @@ class ProjectsController < ApplicationController
     	end
 	end
 	def add_members
-		params[:user][:id].each do |user|
-			if !user.empty?
-				@project.members.build(:user_id => user)
-			end
+		puts "================================================"
+		puts params[:id]
+		puts params[:user][:id]
+		puts "================================================"
+		test=Member.where(user_id: params[:user][:id],project_id:params[:id])
+		if test.empty?
+			Member.create(user_id: params[:user][:id], project_id: params[:id])
 		end
+		redirect_to projects_url
 	end
 	private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,5 @@
 class UserStoriesController < ApplicationController
-  before_action :set_user_story, only: [ :show,:edit, :update, :destroy, :changestate]
+  before_action :set_user_story, only: [ :show,:edit, :update, :destroy, :changestate , :add_comment]
 
   # GET /user_stories
   # GET /user_stories.json
@@ -13,7 +13,14 @@ class UserStoriesController < ApplicationController
     @project_id=@user_story.project_id
     @member = current_user.members.where(project_id: @project_id).last
     @all_members = @user_story.users
+    @comments=@user_story.comments 
   end
+
+  def add_comment
+    Comment.create(content: params[:post_comment], user_id: current_user.id,user_story_id: params[:id],username: current_user.username)
+    redirect_to user_story_url(@user_story.id)
+  end
+
 
   # GET /user_stories/new
   def new
@@ -22,6 +29,7 @@ class UserStoriesController < ApplicationController
     @user_story.project_id = params[:project_id]
     @user_ids=Member.select(:user_id).where(project_id: @user_story.project_id)
     @users=User.where("id IN (?)",@user_ids)
+    #@users = User.all(id: @user_ids)
     @story_member=@user_story.user_story_members.build
   end
 

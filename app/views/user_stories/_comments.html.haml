@@ -1,0 +1,6 @@
+-if @comments!=nil
+	-@comments.each do |comment|
+		=comment.username
+		= " :  "
+		=comment.content
+		%br

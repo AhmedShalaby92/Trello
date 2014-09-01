@@ -1,9 +1,10 @@
 -if @users != nil
-	= fields_for(@member) do |m|
-		.field
-			%center
-				= m.label "Add members"
-				%br
-				= collection_select(:user , :id , @users , :id , :username ,{})
-				%br
-	
+	= form_for :project, :url => {:action => "add_members", :id => @project} do |f|
+		= fields_for(@member) do |m|
+			.field
+				%center
+					= m.label "Add members"
+					%br
+					= collection_select(:user , :id , @users , :id , :username ,{})
+					%br
+					= f.submit "Add"

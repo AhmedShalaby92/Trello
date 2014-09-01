@@ -13,4 +13,10 @@ $(document).ready ->
     $(event.currentTarget).parents("li:first").remove()
     return
 
+
+  
+
+
+
+
  return

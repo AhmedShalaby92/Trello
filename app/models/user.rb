@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :projects , through: :members
 
+
+  has_many :comments , dependent: :destroy
+
+
   def self.search(search)
     if search
       where('username LIKE ?', "%#{search}%")

@@ -42,3 +42,11 @@
 					%img.media-object.profileAvatar{:src => "#{member.avatar.url(:thumb)}"}
 				 
 				= member.username
+	.well.halfPageWidth
+		= form_tag add_comment_path(:id => @user_story) , remote: true do
+			%p
+			= text_field_tag :post_comment, params[:post_comment]
+			= submit_tag "comment", :name => nil 
+
+		#comments
+			=render('comments')

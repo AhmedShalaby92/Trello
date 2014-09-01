@@ -23,6 +23,11 @@ $(function(){
     	return false;
   });
 
+	$("#post_comment").submit(function() {
+    	$.get(this.action, $(this).serialize(), null, "script");
+    	return false;
+  });
+
 	// $("#members_search").keyup(function() {
  //    $.get($("#members_search").attr("action"), $("#members_search").serialize(), null, "script");
  //    return false;
