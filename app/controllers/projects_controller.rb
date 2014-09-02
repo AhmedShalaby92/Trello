@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   	end
 
   	def show_comment
-  		 @comments=Project.joins(:user_stories => :user_comments).select('projects.name as "project",user_comments.content,user_comments.username,user_stories.name')
+  		 @comments=Project.joins(:user_stories => :user_comments).joins("LEFT JOIN `tasks` ON `tasks`.`user_story_id` = `user_stories`.`id`").select('projects.name as "project",user_comments.content,user_comments.username,user_stories.name,tasks.name as"task"')
   	end
 
 	def new

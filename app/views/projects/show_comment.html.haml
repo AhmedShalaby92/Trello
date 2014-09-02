@@ -8,6 +8,7 @@
 					%th User Story
 					%th Username
 					%th comment
+					%th task
 					%th{:colspan => "3"}
 				%tbody
 					- @comments.each do |comment|
@@ -20,6 +21,8 @@
 								=comment.username
 							%td
 								=comment.content
+							%td
+								=comment.task
 							%br	
 
 
