@@ -28,8 +28,7 @@ class UserStoriesController < ApplicationController
     @user_story = UserStory.new
     @user_story.project_id = params[:project_id]
     @user_ids=Member.select(:user_id).where(project_id: @user_story.project_id)
-    @users=User.where("id IN (?)",@user_ids)
-    #@users = User.all(id: @user_ids)
+    @users=User.where(id: @user_ids)
     @story_member=@user_story.user_story_members.build
   end
 

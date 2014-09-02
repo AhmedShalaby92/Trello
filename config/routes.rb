@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post 'project/comment' => 'projects#comment' , as: 'comments'
 
   get 'project/show_comments' => 'projects#show_comment' , as: 'show_comments'
+  get 'project/deliver' => 'projects#deliver' , as: 'deliver'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

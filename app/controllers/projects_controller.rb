@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	 before_action :set_project, only: [:show, :edit, :update, :destroy, :add_members]
+	 before_action :set_project, only: [:show, :edit, :update, :destroy, :add_members , :deliver]
 	 before_action :check , only: [:show, :edit, :update, :destroy]
 
 	def check
@@ -13,9 +13,18 @@ class ProjectsController < ApplicationController
 		end
 	end
 	def index
-		@projects =Project.joins(:members).where(members: {user_id: current_user.id})
 		@users = User.all
+		@search =  Project.search(params[:q])
+		#@projects =Project.joins(:members).where(members: {user_id: current_user.id})
+		@projects =@search.result
+		@search.build_condition
+	end
 
+
+	def deliver
+		@project=Project.find(params[:id])
+		@project.delay.deliver
+		redirect_to project_url(params[:id]) , notice: "Delviered"
 	end
 
 	def show
@@ -42,6 +51,7 @@ class ProjectsController < ApplicationController
 
   	def show_comment
   		 @comments=Project.joins(:user_stories => :user_comments).joins("LEFT JOIN `tasks` ON `tasks`.`user_story_id` = `user_stories`.`id`").select('projects.name as "project",user_comments.content,user_comments.username,user_stories.name,tasks.name as"task"')
+
   	end
 
 	def new
@@ -54,6 +64,7 @@ class ProjectsController < ApplicationController
 	def edit
 		#current_user.projects(id: params[:id])
 		@user_ids=Member.select(:user_id).where(project_id: Project.find(params[:id]))
+		#TODO
 		@users=User.where("id NOT IN (?)" , @user_ids)
 		@member=@project.members.build
   	end
@@ -102,7 +113,7 @@ class ProjectsController < ApplicationController
 	    end
 	end
 
-	def destory
+	def destroy
 		@project.destroy
     	respond_to do |format|
       		format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }

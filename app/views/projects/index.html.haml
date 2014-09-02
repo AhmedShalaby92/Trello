@@ -1,3 +1,16 @@
+%center
+	.well.halfPageWidth
+		= search_form_for @search do |f|
+			= f.condition_fields do |c|
+				.field
+					= c.attribute_fields do |a|
+						= a.attribute_select associations: [:users]
+					= c.predicate_select
+					=c.value_fields do |v|
+						= v.text_field :value
+			=f.submit "search" 
+
+
 %h1
 	Projects
 %center

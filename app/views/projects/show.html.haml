@@ -1,6 +1,8 @@
 - model_class = Project
 .page-header
-	%h1= @project.name
+	%h1
+		-if @project.name.present?
+			=@project.name
 	
 %center
 	.well.halfPageWidth
@@ -46,4 +48,6 @@
 
 		#members
 		=render('members')
-		
+
+
+		=link_to "Deliver" , deliver_path(:id => @project) 
